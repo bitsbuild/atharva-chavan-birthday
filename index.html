@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Atharva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      scroll-snap-type: y mandatory;
+      height: 100vh;
+      overflow-y: scroll;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      padding: 4rem 2rem;
+      overflow: hidden;
+      scroll-snap-align: start;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+      max-width: 900px;
+      line-height: 1.2;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards;
+      word-wrap: break-word;
+    }
+
+    p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.8;
+      color: #ddd;
+      word-wrap: break-word;
+    }
+
+    .note-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1200px;
+      width: 100%;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards;
+      animation-delay: 0.5s;
+    }
+
+    .note-part {
+      padding-inline: 1rem;
+    }
+
+    @media (max-width: 1024px) {
+      .note-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      p {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+    }
+
+    #page1 { background: linear-gradient(135deg, #2b0a3d, #1a002b); }
+    #page2 { background: linear-gradient(135deg, #1a002b, #400a67); }
+    #page3 { background: linear-gradient(135deg, #400a67, #2b0a3d); }
+
+    .shine {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      filter: blur(50px);
+      animation: pulse 6s infinite;
+      z-index: 0;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: rotateBg 30s linear infinite;
+      z-index: 0;
+    }
+
+    section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes rotateBg {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.4; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
+    }
+
+    nav {
+      position: fixed;
+      top: 50%;
+      left: 2rem;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 10;
+    }
+
+    nav a {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a.active, nav a:hover {
+      background: #fff;
+    }
+
+    nav a::before {
+      content: '🏏';
+      position: absolute;
+      left: 30px;
+      font-size: 1rem;
+      opacity: 0;
+      transform: translateY(-50%) scale(0.5);
+      transition: all 0.3s ease;
+      top: 50%;
+    }
+
+    nav a:hover::before {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#page1" class="nav-link active"></a>
+    <a href="#page2" class="nav-link"></a>
+    <a href="#page3" class="nav-link"></a>
+  </nav>
+
+  <section id="page1">
+    <div class="shine"></div>
+    <h1>Happy Birthday, Atharva!</h1>
+    <p>May your innings this year be full of centuries, sixes, and match-winning moments. Shine on, Atharva!</p>
+  </section>
+
+  <section id="page2">
+    <div class="shine"></div>
+    <h1>A Note from Me</h1>
+    <div class="note-wrapper">
+      <div class="note-part">
+        <p>
+          A year ago, if somebody had asked me, I would have said I have a sister — but I guess I can now claim I have a sister and a brother. I'm so glad we had that honest chat this year and worked towards such a wonderful bond.
+        </p>
+      </div>
+      <div class="note-part">
+        <p>
+          You've been the guy I’ve loved to hang out with — you’re sweet, gentle, and of course, also one of the most talented and hardworking people I know. I may joke about it, but you truly inspire me to have the best work ethic.
+          It's been an absolute joy — whether it's chatting about cricket, placements, or everything under the sun.
+          You're terrible with punctuality and have made me wait at the metro (and even forget sometimes that I'm waiting!). But one thing you're not bad at is being a great friend. I hope we spend much more time together, share many more amazing memories, and continue being the rip-off version of Mike Atherton and Nasser Hussain.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="page3">
+    <div class="shine"></div>
+    <h1>Raise Your Bat, Atharva</h1>
+    <p>Celebrate every run, every milestone. This birthday, your scoreboard is all yours, Atharva. Keep scoring big!</p>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - section.clientHeight / 3) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
